@@ -36,7 +36,7 @@ export default function HomeBuyerGuide() {
               </h2>
               
               <p className="hbg-body">
-                MotorhomesForSale.com.au helps Australian buyers browse and compare new and used campervans in one convenient place. Review prices, layouts, features and key specifications before contacting a private seller or visiting a dealership. Compare important details such as year, make, model, sleeping capacity, length, fuel type, transmission, tare weight, GVM and payload capacity to narrow down the options that suit your needs.
+                CampervansForSale.au helps Australian buyers browse and compare new and used campervans in one convenient place. Review prices, layouts, features and key specifications before contacting a private seller or visiting a dealership. Compare important details such as year, make, model, sleeping capacity, length, fuel type, transmission, tare weight, GVM and payload capacity to narrow down the options that suit your needs.
               </p>
               <p className="hbg-body">
                 Use the search filters to browse available campervans by state, location, price, condition, make, sleeping capacity and length. You can then compare standard features, optional upgrades, warranty coverage, finance options and trade-in availability before making your decision. When buying a used campervan, also check its service history, registration status, overall condition and maintenance records. Our platform makes it easier to research available listings and find the right campervan for your budget, travel plans and lifestyle.
@@ -66,7 +66,7 @@ export default function HomeBuyerGuide() {
             <p className="hbg-sell-body">
               If you&apos;re upgrading or no longer need your current campervan,{" "}
               <a href="/sell-my-campervan/" className="hbg-sell-link">sell your campervan</a>{" "}
-              by creating a listing on MotorhomesForSale.com.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
+              by creating a listing on CampervansForSale.au and connect with active buyers across Australia. Your advertisement stays online until it&apos;s sold for a one-time fee of $49.
             </p>
 
 
@@ -78,7 +78,7 @@ export default function HomeBuyerGuide() {
       <section className="hbg-why-section">
         <div className="container">
           <h2 className="hbg-why-title">
-            Why Australians Use <span className="hbg-why-accent">MotorhomesForSale.com.au</span>
+            Why Australians Use <span className="hbg-why-accent">CampervansForSale.au</span>
           </h2>
           
 

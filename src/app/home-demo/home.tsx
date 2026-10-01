@@ -250,7 +250,7 @@ export default function HomePage({
             <div className="sell-content">
               <h3>List Your Campervan For Sale Today</h3>
               <p className="subtitle">Reach thousands of campervan buyers daily.</p>
-              <p className="desc">List your campervan on MotorhomesForSale.com.au — Australia&apos;s trusted marketplace to buy and sell campervans.</p>
+              <p className="desc">List your campervan on CampervansForSale.au — Australia&apos;s trusted marketplace to buy and sell campervans.</p>
               <div className="btns_two">
                 <a href="/dealer-advertising/" className="btn primary-btn">Dealer Sign Up</a>
                 <a href="/sell-my-campervan/" className="btn secondary-btn">Private Seller - Click Here</a>

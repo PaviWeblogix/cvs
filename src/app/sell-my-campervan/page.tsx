@@ -22,7 +22,7 @@ const sellPageJsonLd = {
       "name": "Private Campervan Listing Service",
       "url": `${BASE_URL}/sell-my-campervan/`,
       "description":
-        "List your campervan for sale on MotorhomesForSale.com.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.",
+        "List your campervan for sale on CampervansForSale.au for a one-time $49 fee. No commissions, no subscriptions, live until sold.",
       "provider": {
         "@type": "Organization",
         "name": "Campervans For Sale",
@@ -48,7 +48,7 @@ const sellPageJsonLd = {
           "name": "How do I sell my campervan online in Australia?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can sell your campervan online by creating a private seller listing on MotorhomesForSale.com.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.",
+            "text": "You can sell your campervan online by creating a private seller listing on CampervansForSale.au. Add your campervan details, upload clear photos, set your asking price and publish your ad so buyers across Australia can contact you directly.",
           },
         },
         {
@@ -56,7 +56,7 @@ const sellPageJsonLd = {
           "name": "How much does it cost to list my campervan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It costs $49 inc. GST to list your campervan on MotorhomesForSale.com.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
+            "text": "It costs $49 inc. GST to list your campervan on CampervansForSale.au. This is a one-time listing fee with no monthly subscription, no hidden charges and no commission when your campervan sells.",
           },
         },
         {
@@ -112,7 +112,7 @@ const sellPageJsonLd = {
           "name": "Do I pay commission when my campervan sells?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. MotorhomesForSale.com.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
+            "text": "No. CampervansForSale.au does not charge commission when your campervan sells. You pay the one-time listing fee and keep 100% of the agreed sale price.",
           },
         },
         {

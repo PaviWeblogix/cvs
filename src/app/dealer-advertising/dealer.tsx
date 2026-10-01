@@ -26,7 +26,7 @@ const DealerLandingPage = () => {
                 <h1>
                   Unlimited Listings. Zero Lead Fees. <br />
                   <span className="color-text">
-                    $299 per month{" "}
+                    $199 per month{" "}
                     <span style={{ fontSize: "20px" }}>(inc. GST)</span>
                   </span>{" "}
                   <span className="no-color-text">- Cancel anytime</span>
@@ -39,9 +39,7 @@ const DealerLandingPage = () => {
 
                 <a
                   className="btn white_btn"
-                  aria-disabled="true"
-                  tabIndex={-1}
-                  style={{ opacity: 0.5, cursor: "not-allowed", pointerEvents: "none" }}
+                  href="https://seller.marketplacenetwork.com.au/campervan-dealer-subscription/"
                 >
                   Start Dealer Signup
                 </a>
@@ -65,7 +63,7 @@ const DealerLandingPage = () => {
                     </h2>
 
                     <p className="mb-3">
-                      Your stock deserves visibility without per-lead fees. MotorhomesForSale.com.au
+                      Your stock deserves visibility without per-lead fees. CampervansForSale.au
                       connects your dealership with buyers actively searching
                       for their next campervan—so your inventory gets seen by the
                       right audience.
@@ -158,7 +156,7 @@ const DealerLandingPage = () => {
             <div className="col-12">
               <div className="comparison">
                 <h2 className="text-center">
-                  <span>Why Campervan Dealers </span> Choose MotorhomesForSale
+                  <span>Why Campervan Dealers </span> Choose CampervansForSale
                 </h2>
 
                 <div className="table-responsive">
@@ -166,7 +164,7 @@ const DealerLandingPage = () => {
                     <thead>
                       <tr>
                         <th className="text-start">Comparison Table</th>
-                        <th>MotorhomesForSale</th>
+                        <th>CampervansForSale</th>
                         <th>Other Marketplaces</th>
                       </tr>
                     </thead>
@@ -244,7 +242,7 @@ const DealerLandingPage = () => {
                   <h2>Simple Pricing. No Surprises.</h2>
 
                   <div className="price">
-                    $299 Per Month{" "}
+                    $199 Per Month{" "}
                     <span style={{ fontSize: "20px" }}>(inc. GST)</span>
                   </div>
 
@@ -257,9 +255,7 @@ const DealerLandingPage = () => {
 
                   <a
                     className="btn white_btn"
-                    aria-disabled="true"
-                    tabIndex={-1}
-                    style={{ opacity: 0.5, cursor: "not-allowed", pointerEvents: "none" }}
+                    href="https://seller.marketplacenetwork.com.au/campervan-dealer-subscription/"
                   >
                     Start Dealer Signup
                   </a>
@@ -291,11 +287,11 @@ const DealerLandingPage = () => {
               <div className={`collapse ${activeFaq === 1 ? "show" : ""}`}>
                 <div className="card-body">
                   <p>
-                    The dealer subscription is $299 per month (including GST). This flat
+                    The dealer subscription is $199 per month (including GST). This flat
                     monthly fee allows your dealership to list unlimited campervans on
-                    MotorhomesForSale.com.au. There are no per-listing charges, and we never
+                    CampervansForSale.au. There are no per-listing charges, and we never
                     charge per lead or take success commissions – no matter how many
-                    inquiries or sales you get, $299/month covers it all.
+                    inquiries or sales you get, $199/month covers it all.
                   </p>
                 </div>
               </div>
@@ -349,7 +345,7 @@ const DealerLandingPage = () => {
               <div className={`collapse ${activeFaq === 3 ? "show" : ""}`}>
                 <div className="card-body">
                   <p>
-                    MotorhomesForSale.com.au is a campervan-only marketplace with a focused,
+                    CampervansForSale.au is a campervan-only marketplace with a focused,
                     nationwide audience of serious buyers.
                   </p>
                 </div>

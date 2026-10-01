@@ -5,11 +5,11 @@ import { ReactNode } from "react";
 
  export const metadata: Metadata = {
    title: {
-     default: "Campervan Dealer Advertising | Unlimited Listings $299/Month | MotorhomesForSale",
+     default: "Campervan Dealer Advertising | Unlimited Listings $199/Month | CampervansForSale",
      template: "%s ",
    },
    description:
-     "Advertise your campervan dealership on MotorhomesForSale.com.au. Unlimited listings, zero lead fees, and reach high-intent campervan buyers across Australia.",
+     "Advertise your campervan dealership on CampervansForSale.au. Unlimited listings, zero lead fees, and reach high-intent campervan buyers across Australia.",
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    alternates: {
