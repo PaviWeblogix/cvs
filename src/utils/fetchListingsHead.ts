@@ -41,7 +41,7 @@ type ApiResponse = {
   emp_exclusive_products?: Item[];
 };
 
- const BASE_URL = "https://www.motorhomesforsale.com.au";
+ const BASE_URL = "https://www.campervansforsale.au";
 const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE;
 const API_KEY = process.env.MFS_API_KEY;
 
@@ -180,7 +180,7 @@ function buildProductListItem(item: Item, position: number) {
     "@type": "ListItem",
     position,
     item: {
-      "@type": "Caravan",
+      "@type": "Campervan",
       bodyType: item.categories && item.categories.length > 0
         ? item.categories.join(", ")
         : "",
@@ -222,7 +222,7 @@ export function buildListingsJsonLd(
     ...(response.data?.products || []),
     ...(response.data?.emp_exclusive_products || []),
   ];
-const weburl = "https://www.motorhomesforsale.com.au"
+const weburl = "https://www.campervansforsale.au"
 
   const footerDescription = response?.seo_v2?.footer_description
     ? stripHtml(response.seo_v2.footer_description)

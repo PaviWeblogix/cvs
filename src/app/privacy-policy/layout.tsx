@@ -13,13 +13,13 @@ import { ReactNode } from "react";
    icons: { icon: "/favicon.ico" },
    robots: "index",
    alternates: {
-    canonical: "https://www.motorhomesforsale.com.au/privacy-policy/",
+    canonical: "https://www.campervansforsale.au/privacy-policy/",
 
    },
    
    openGraph: {
-      url: "https://www.motorhomesforsale.com.au/privacy-policy/",
-     title: "Privacy Policy - caravansforsale.com.au - Campervan Marketplace",
+      url: "https://www.campervansforsale.au/privacy-policy/",
+     title: "Privacy Policy - campervansforsale.au - Campervan Marketplace",
        description:
      "Learn about Campervan Marketplace's privacy policy on data collection, usage, security measures, and your rights regarding your information.",
      

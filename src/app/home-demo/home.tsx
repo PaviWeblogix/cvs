@@ -195,7 +195,7 @@ export default function HomePage({
 
       
 
-      {/* ── Featured Caravans ── */}
+      {/* ── Featured Campervans ── */}
       <HomeFeatured items={featured.all} />
 
       {/* ── Banner Ad ── */}
@@ -235,7 +235,7 @@ export default function HomePage({
         </div>
       </div>
 
-      {/* ── New Caravans for Sale ── */}
+      {/* ── New Campervans for Sale ── */}
       <HomeListingSlider
         title="New Campervans for Sale"
         viewAllHref="/listings/new-condition/"
@@ -260,7 +260,7 @@ export default function HomePage({
         </div>
       </section>
 
-      {/* ── Used Caravans for Sale ── */}
+      {/* ── Used Campervans for Sale ── */}
       <HomeListingSlider
         title="Used Campervans for Sale"
         viewAllHref="/listings/used-condition/"

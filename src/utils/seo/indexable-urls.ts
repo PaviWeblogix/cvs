@@ -5,7 +5,7 @@ function buildIndexableSet(): Set<string> {
   try {
     const filePath = path.join(process.cwd(), "src/app/url.csv");
     const content = fs.readFileSync(filePath, "utf-8");
-    const BASE = "https://www.motorhomesforsale.com.au";
+    const BASE = "https://www.campervansforsale.au";
     const set = new Set<string>();
     // One URL per line — no header row, no tab-separated columns.
     for (const line of content.split(/\r?\n/)) {

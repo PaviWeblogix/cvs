@@ -1,14 +1,15 @@
 // src/app/listings-sitemap.xml/route.ts
 import { NextResponse } from "next/server";
  const API_KEY = process.env.MFS_API_KEY; // ✅ Add at top of file
+ const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE;
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.motorhomesforsale.com.au";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
  export async function GET() {
   try {
     const response = await fetch(
-      "https://admin.motorhomesforsale.com.au/wp-json/mfs/v1/search-keyword",
+      `${API_BASE}/search-keyword`,
        {
         headers: {
           Accept: "application/json",

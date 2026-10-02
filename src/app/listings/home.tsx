@@ -381,7 +381,7 @@ export default function StateHome({
     // intermediate render with seo=null when data is already in memory.
     // Processing synchronously means React batches all setState calls into a
     // single render: seo, pool, and poolLoading all update together, so the
-    // "Featured Caravans…" heading is present from the very first client paint.
+    // "Featured Campervans…" heading is present from the very first client paint.
     const win = window as unknown as Record<string, unknown>;
     const preload = win.__INITIAL_POOL__ as { url: string; json: unknown } | undefined;
     if (preload && !initialPoolConsumed.current && preload.url === requestUrl) {
@@ -722,7 +722,7 @@ export default function StateHome({
           {filters.category === 'off-road' && (
             <section className="lsd-offroad-extra"><div className="container">
               <h2 className="lsd-offroad-extra__title">{seed % 2 === 0 ? "Find Your Ideal Off Road Campervan" : "Search and Compare Off Road Campervans"}</h2>
-              <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="https://www.motorhomesforsale.com.au/off-road-campervans/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
+              <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="/listings/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
             </div></section>
           )}
           <div className="lsd-sell-cta">
@@ -868,7 +868,7 @@ export default function StateHome({
         {filters.category === 'off-road' && (
           <section className="lsd-offroad-extra"><div className="container">
             <h2 className="lsd-offroad-extra__title">{seed % 2 === 0 ? "Find Your Ideal Off Road Campervan" : "Search and Compare Off Road Campervans"}</h2>
-            <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="https://www.motorhomesforsale.com.au/off-road-campervans/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
+            <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="/listings/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
           </div></section>
         )}
         <div className="lsd-sell-cta">
@@ -933,7 +933,7 @@ export default function StateHome({
       {filters.category === 'off-road' && (
         <section className="lsd-offroad-extra"><div className="container">
           <h2 className="lsd-offroad-extra__title">{seed % 2 === 0 ? "Find Your Ideal Off Road Campervan" : "Search and Compare Off Road Campervans"}</h2>
-          <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="https://www.motorhomesforsale.com.au/off-road-campervans/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
+          <p className="lsd-offroad-extra__body">Browse live campervan listings from across the country, then compare <a href="/listings/">off road campervans in Australia</a> using search filters by price, location, weight, length and sleeping capacity while exploring manufacturer and model reviews.</p>
         </div></section>
       )}
       <div className="lsd-sell-cta">

@@ -215,7 +215,7 @@ const DealerLandingPage = () => {
               </section>
             </div>
           </div>
-          {/* Reach Caravan Buyers Section */}
+          {/* Reach Campervan Buyers Section */}
           <div className="col-lg-12">
             <div className="heading-box">
               <h2>Reach campervan buyers across Australia</h2>

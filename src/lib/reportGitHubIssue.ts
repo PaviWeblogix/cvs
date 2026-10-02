@@ -1,5 +1,5 @@
 const GITHUB_OWNER = "sangeethaWeblogix";
-const GITHUB_REPO = "caravansforsale-main-LIVE";
+const GITHUB_REPO = "cvs";
 const GITHUB_API = "https://api.github.com";
 
 export interface GitHubErrorPayload {
@@ -153,13 +153,13 @@ ${payload.message}
 \`\`\`
 
 ### Checklist
-- [ ] Verify backend API is reachable: \`https://admin.motorhomesforsale.com.au/wp-json/mfs/v1/new_optimize_code\`
+- [ ] Verify backend API is reachable: \`${process.env.NEXT_PUBLIC_MFS_API_BASE}\`
 - [ ] Check \`MFS_API_KEY\` in Vercel environment variables
 - [ ] Check Vercel function logs for this timeframe
 - [ ] Confirm API response time is under 30s
 
 ---
-*Auto-reported by production error handler — caravansforsale.com.au*`;
+*Auto-reported by production error handler — campervansforsale.au*`;
 
     await fetch(`${GITHUB_API}/repos/${GITHUB_OWNER}/${GITHUB_REPO}/issues`, {
       method: "POST",

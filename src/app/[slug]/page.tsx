@@ -40,7 +40,7 @@ export async function generateMetadata({
       description: "Your enquiry was submitted successfully.",
       robots: "noindex, nofollow",
       alternates: {
-        canonical: `https://www.motorhomesforsale.com.au/${slug}/`,
+        canonical: `https://www.campervansforsale.au/${slug}/`,
       },
     };
   }
@@ -60,7 +60,7 @@ export async function generateMetadata({
     data?.short_description ||
     "View campervan details.";
   const robots = "index, follow";
-  const canonicalUrl = `https://www.motorhomesforsale.com.au/${slug}/`;
+  const canonicalUrl = `https://www.campervansforsale.au/${slug}/`;
   console.log("generateMetadata", { title, description, robots, canonicalUrl });
   return {
     title,
@@ -133,7 +133,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
             <Typography variant="h5" fontWeight="bold" gutterBottom>
               Thank you for submitting your information with{" "}
-              <span style={{ color: "#000" }}>caravansforsale.com.au</span>.
+              <span style={{ color: "#000" }}>campervansforsale.au</span>.
             </Typography>
 
             <Typography variant="body1" color="text.secondary" gutterBottom>

@@ -76,7 +76,7 @@ async function fetchSitemapList(): Promise<string[]> {
 
 export async function GET() {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.motorhomesforsale.com.au";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
   const sitemaps = await fetchSitemapList();
 

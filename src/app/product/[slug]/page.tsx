@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = seo.metatitle || seo.meta_title || pd.name || data?.name || slugTitle || "Campervan for Sale";
   const description = seo.metadescription || seo.meta_description || pd.short_description || "View campervan details on Campervans For Sale Australia.";
-  const canonicalUrl = `https://www.motorhomesforsale.com.au/product/${slug}/`;
+  const canonicalUrl = `https://www.campervansforsale.au/product/${slug}/`;
   const rawImages = pd.image_url ?? pd.images ?? [];
   const images: string[] = (Array.isArray(rawImages) ? rawImages : [rawImages]).filter(Boolean);
 
@@ -254,7 +254,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
   const seo = data?.seo ?? data?.product?.seo ?? {};
   const pdName = seo.metatitle || seo.meta_title || pd.name || data?.name || "";
   const pdDesc = seo.metadescription || seo.meta_description || pd.short_description || data?.short_description || "";
-  const canonicalUrl = `https://www.motorhomesforsale.com.au/product/${slug}/`;
+  const canonicalUrl = `https://www.campervansforsale.au/product/${slug}/`;
 
   const rawImages = pd.image_url ?? pd.images ?? [];
   const images: string[] = (Array.isArray(rawImages) ? rawImages : [rawImages]).filter(Boolean);

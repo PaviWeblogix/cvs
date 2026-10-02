@@ -1,6 +1,7 @@
 import { cache } from "react";
 
 const API_KEY = process.env.MFS_API_KEY;
+const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE;
 const FETCH_TIMEOUT_MS = 8000;
 const MAX_ATTEMPTS = 3;
 
@@ -25,7 +26,7 @@ async function fetchWithTimeout(url: string) {
 // generateMetadata + layout + page no longer each hit the WP API separately.
 export const fetchBlogDetail = cache(async (slug: string, seed?: number) => {
   const seedParam = seed ? `&seed=${seed}` : "";
-  const url = `https://admin.motorhomesforsale.com.au/wp-json/mfs/v1/blog-detail-new/?slug=${encodeURIComponent(
+  const url = `${API_BASE}/blog-detail-new/?slug=${encodeURIComponent(
     slug
   )}${seedParam}`;
 

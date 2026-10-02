@@ -109,7 +109,7 @@ const parseAmt = (v: string | number | undefined) => {
 };
 const fmt = (n: number) =>
   n.toLocaleString("en-AU", { style: "currency", currency: "AUD", maximumFractionDigits: 0 });
-const slugify = (s: string) => s.trim().toLowerCase().replace(/\s+/g, "-");
+const slugify = (s: string) => s.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 const toInt = (s: string) => { const n = parseInt(String(s).replace(/[^\d]/g, ""), 10); return Number.isFinite(n) && n > 0 ? n : null; };
 const linkFromApiUrl = (rawUrl: string, text: string) => { const u = (rawUrl || "").trim().replace(/^\/+|\/+$/g, ""); return { href: /[=&]/.test(u) ? `/listings/?${u}` : `/listings/${u}/`, text }; };
 const STATE_ABBR: Record<string, string> = {
@@ -321,7 +321,7 @@ export default function ProductDetailDemo({ data, similarData }: Props) {
   const makeDetailUrl = (label: string, value: string, apiUrl: string): string => {
     const v = value.trim();
     const L = label.toLowerCase();
-    if (L === "year" || L === "years") { const n = toInt(v); return n ? `/listings/${n}-caravans-range/` : ""; }
+    if (L === "year" || L === "years") { const n = toInt(v); return n ? `/listings/year-from-${n}-caravans-range/` : ""; }
     if (apiUrl) return linkFromApiUrl(apiUrl, v).href;
     if (L === "type" || L === "category") return v ? `/listings/${slugify(v.replace(/\s*caravans?\s*/gi, " ").trim())}-category/` : "";
     if (L === "make") return v ? `/listings/${slugify(v)}/` : "";
@@ -372,7 +372,7 @@ export default function ProductDetailDemo({ data, similarData }: Props) {
     const stateAttr   = attributes.find(a => String(a?.label ?? "").toLowerCase() === "location");
     const stateSlug   = stateAttr?.url?.trim() || `${slugify(locationState)}-state`;
     const links: DetailLink[] = [];
-    if (locationCity && regionSlug) links.push({ href: `/listings/${stateSlug}/${regionSlug}/`, text: locationCity.replace(/\b\w/g, c => c.toUpperCase()) });
+    if (locationCity && regionSlug) links.push({ href: `/listings/${stateSlug}/${regionSlug}-region/`, text: locationCity.replace(/\b\w/g, c => c.toUpperCase()) });
     if (locationState) links.push(stateAttr?.url ? linkFromApiUrl(stateAttr.url, locationState) : { href: `/listings/${stateSlug}/`, text: locationState });
     detailRows.push({ label: "Location", value: [locationCity, locationState].filter(Boolean).join(", "), url: "", links });
   }
@@ -443,7 +443,7 @@ const priceUpperIdx = !isPOA ? PRICE_STEPS.findIndex(s => s >= displayPrice) : -
     { label: "Home",            href: "/" },
     { label: "Campervans for Sale", href: "/listings/" },
     ...(state ? [{ label: state, href: `/listings/${slugify(state)}-state/` }] : []),
-    ...(product.region?.value ? [{ label: product.region.value.replace(/-/g, " "), href: `/listings/${slugify(state)}-state/${product.region.slug ?? slugify(product.region.value)}/` }] : []),
+    ...(product.region?.value ? [{ label: product.region.value.replace(/-/g, " "), href: `/listings/${slugify(state)}-state/${product.region.slug ?? slugify(product.region.value)}-region/` }] : []),
     ...(categoryNames[0] ? [{ label: categoryNames[0], href: `/listings/${slugify(categoryNames[0].replace(/\s*caravan\s*/gi, " ").trim())}-category/` }] : []),
   ];
 
@@ -546,7 +546,7 @@ const priceUpperIdx = !isPOA ? PRICE_STEPS.findIndex(s => s >= displayPrice) : -
               </button>
             </div>
 
-            {/* Caravan Details */}
+            {/* Campervan Details */}
             <section className="pdd-section">
               <h2 className="pdd-section__title">Campervan Details</h2>
               <div className="pdd-details-grid">
@@ -669,7 +669,7 @@ const priceUpperIdx = !isPOA ? PRICE_STEPS.findIndex(s => s >= displayPrice) : -
           
         </section>
 
-        {/* ── Similar Caravans ── */}
+        {/* ── Similar Campervans ── */}
         {makeSimilar.length > 0 && (
           <section className="pdd-section pdd-similar">
             <h2 className="pdd-section__title">Similar Campervans in the {makeLabel} Range</h2>
@@ -722,7 +722,7 @@ const priceUpperIdx = !isPOA ? PRICE_STEPS.findIndex(s => s >= displayPrice) : -
           </section>
         )}
 
-        {/* ── Similar Caravans Around the Same Price ── */}
+        {/* ── Similar Campervans Around the Same Price ── */}
         {priceSimilar.length > 0 && (
           <section className="pdd-section pdd-similar">
             <h2 className="pdd-section__title">Similar Campervans Around the Same Price</h2>

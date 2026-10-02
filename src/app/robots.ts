@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
- const BASE_URL = "https://www.motorhomesforsale.com.au";
+ const BASE_URL = "https://www.campervansforsale.au";
 
 export default function robots(): MetadataRoute.Robots {
   return {

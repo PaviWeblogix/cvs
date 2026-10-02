@@ -6,7 +6,7 @@ export interface StateInfo {
 }
 
 export interface RegionInfo {
-  /** Internal slug (legacy, used by old /sell-my-caravan-region/[slug] route) */
+  /** Internal slug (legacy, used by old /sell-my-campervan-region/[slug] route) */
   slug: string;
   /** Clean URL slug for new nested route: /sell-my-campervan/{state}/{pageSlug}/ */
   pageSlug: string;
@@ -115,7 +115,7 @@ export function getRegionsByState(stateSlug: string): RegionInfo[] {
   return ALL_REGIONS.filter((r) => r.state.slug === stateSlug);
 }
 
- const BASE_URL = "https://www.motorhomesforsale.com.au";
+ const BASE_URL = "https://www.campervansforsale.au";
 
 export function buildRegionMetadata(region: RegionInfo): Metadata {
   return {

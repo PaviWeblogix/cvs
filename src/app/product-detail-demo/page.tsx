@@ -35,9 +35,10 @@ const fetchProduct = cache(async () => {
 
 async function fetchSimilarProducts(productId: string | number, seed: number) {
   const API_KEY = process.env.MFS_API_KEY;
+  const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE;
   try {
     const res = await fetch(
-      `https://admin.motorhomesforsale.com.au/wp-json/mfs/v1/similar_products?product_id=${productId}&seed=${seed}`,
+      `${API_BASE}/similar_products?product_id=${productId}&seed=${seed}`,
       {
         cache: "no-store",
         headers: {

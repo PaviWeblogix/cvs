@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
- const BASE_URL = "https://www.motorhomesforsale.com.au";
+ const BASE_URL = "https://www.campervansforsale.au";
 
 export interface StateData {
   slug: string;

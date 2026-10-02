@@ -41,7 +41,7 @@ interface Props {
   description?: string;
   loading?: boolean;
   /** Up to 3 active-filter crumbs, in priority order — rendered after
-   * Home > Caravans for Sale. See buildFilterBreadcrumbs in urlUtils.ts. */
+   * Home > Campervans for Sale. See buildFilterBreadcrumbs in urlUtils.ts. */
   breadcrumbs?: FilterBreadcrumb[];
 }
 

@@ -1,6 +1,6 @@
 const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE;
 const API_KEY = process.env.MFS_API_KEY;
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.motorhomesforsale.com.au";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
 /**
  * Shared builder for every sitemap backed by {{baseUrl}}/sitemap/{type} —

@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.motorhomesforsale.com.au";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
 // Static URLs (you can extend this later with categories, states, regions)
 const staticUrls = [

@@ -13,7 +13,7 @@ import { ReactNode } from "react";
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    alternates: {
-    canonical: "https://www.motorhomesforsale.com.au/about-us/",
+    canonical: "https://www.campervansforsale.au/about-us/",
    },
    
  

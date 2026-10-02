@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   //  productionBrowserSourceMaps: false,
   images: {
     domains: [
+      "images.campervansforsale.au",
       "media.motorhomesforsale.com.au",
       "www.motorhomesforsale.com.au",
       "admin.motorhomesforsale.com.au",
@@ -16,6 +17,7 @@ const nextConfig: NextConfig = {
       "motorhomesforsale.imagestack.net",
     ],
     remotePatterns: [
+      { protocol: "https", hostname: "images.campervansforsale.au", pathname: "/**" },
       { protocol: "https", hostname: "**.motorhomesforsale.com.au", pathname: "/**" },
       { protocol: "https", hostname: "motorhomesforsale.b-cdn.net", pathname: "/**" },
       { protocol: "https", hostname: "motorhomesforsale.imagestack.net", pathname: "/**" },
@@ -72,17 +74,44 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // ── off-road-caravans renamed to off-road-campervans ──────────────────
+      // ── off-road-caravans / off-road-campervans pages retired — redirect to
+      //    the main listings page (the "-category" URL filter is itself
+      //    unsupported sitewide, so this can't point at a working category
+      //    filter URL either) ────────────────────────────────────────────────
       {
         source: "/off-road-caravans/",
-        destination: "/off-road-campervans/",
+        destination: "/listings/",
+        permanent: true,
+      },
+      {
+        source: "/off-road-campervans/",
+        destination: "/listings/",
         permanent: true,
       },
 
-      // ── caravan-sales renamed to campervan-sales ───────────────────────────
+      // ── caravan-sales / campervan-sales pages retired — redirect to the
+      //    main listings page ────────────────────────────────────────────────
       {
         source: "/caravan-sales/",
-        destination: "/campervan-sales/",
+        destination: "/listings/",
+        permanent: true,
+      },
+      {
+        source: "/campervan-sales/",
+        destination: "/listings/",
+        permanent: true,
+      },
+
+      // ── caravan-manufacturers / off-road-caravans-manufacturers pages
+      //    retired — redirect to the main listings page ──────────────────────
+      {
+        source: "/caravan-manufacturers/",
+        destination: "/listings/",
+        permanent: true,
+      },
+      {
+        source: "/off-road-caravans-manufacturers/",
+        destination: "/listings/",
         permanent: true,
       },
 

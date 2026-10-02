@@ -12,7 +12,7 @@ type FormState = {
   "your-phone": string;
   "you-postcode": string; // keep as-is since your CF7 works with this key
   "your-message": string;
-  // "caravan-type": "";
+  // "campervan-type": "";
   condition: "";
   budget: "";
 };
@@ -26,7 +26,7 @@ export default function ContactSection() {
     "your-phone": "",
     "you-postcode": "",
     "your-message": "",
-    // "caravan-type": "",
+    // "campervan-type": "",
     condition: "",
     budget: "",
   });
@@ -78,9 +78,9 @@ export default function ContactSection() {
       next["you-postcode"] = "Postcode must be 4 digits.";
     }
 
-    // Caravan type
-    // if (!formData["caravan-type"].trim()) {
-    //   next["caravan-type"] = "Type is required.";
+    // Campervan type
+    // if (!formData["campervan-type"].trim()) {
+    //   next["campervan-type"] = "Type is required.";
     // }
 
     // Condition
@@ -130,7 +130,7 @@ export default function ContactSection() {
         "your-phone": "",
         "you-postcode": "",
         "your-message": "",
-        // "caravan-type": "",
+        // "campervan-type": "",
         condition: "",
         budget: "",
       });
@@ -255,13 +255,13 @@ export default function ContactSection() {
                         </div>
                       </div>
 
-                      {/* Caravan Type */}
+                      {/* Campervan Type */}
                       {/* <div className="col-lg-6">
                         <div className="form-group mb-20">
                           <select
-                            name="caravan-type"
+                            name="campervan-type"
                             className="form-control"
-                            value={formData["caravan-type"]}
+                            value={formData["campervan-type"]}
                             onChange={handleChange}
                             required
                           >
@@ -275,9 +275,9 @@ export default function ContactSection() {
                             <option value="Family">Family</option>
                             <option value="Touring">Touring</option>
                           </select>
-                          {errors["caravan-type"] && (
+                          {errors["campervan-type"] && (
                             <small className="text-danger">
-                              {errors["caravan-type"]}
+                              {errors["campervan-type"]}
                             </small>
                           )}
                         </div>

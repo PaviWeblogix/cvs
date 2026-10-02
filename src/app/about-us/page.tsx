@@ -1,7 +1,7 @@
 import About from "./about";
 import "./about.css";
 
-const BASE_URL = "https://www.motorhomesforsale.com.au";
+const BASE_URL = "https://www.campervansforsale.au";
 
 const aboutPageJsonLd = {
   "@context": "https://schema.org",
@@ -19,7 +19,7 @@ const aboutPageJsonLd = {
       "@type": "Organization",
       "name": "Marketplace Network",
       "url": BASE_URL,
-      "email": "enquiries@motorhomesforsale.com.au",
+      "email": "enquiries@campervansforsale.au",
     },
   ],
 };

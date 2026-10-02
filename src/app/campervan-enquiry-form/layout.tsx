@@ -13,7 +13,7 @@ import { ReactNode } from "react";
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    alternates: {
-    canonical: "https://www.motorhomesforsale.com.au/campervan-enquiry-form/",
+    canonical: "https://www.campervansforsale.au/campervan-enquiry-form/",
    },
    
  

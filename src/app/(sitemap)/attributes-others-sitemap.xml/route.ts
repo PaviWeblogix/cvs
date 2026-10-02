@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.motorhomesforsale.com.au";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.campervansforsale.au";
 
 /**
  * The full "By Price / By Weight (GVM) / By Size (Length) / By Sleeping

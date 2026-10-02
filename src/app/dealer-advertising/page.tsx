@@ -5,20 +5,20 @@ const schemaGraph = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://www.motorhomesforsale.com.au/dealer-advertising/#webpage",
-    "url": "https://www.motorhomesforsale.com.au/dealer-advertising/",
+    "@id": "https://www.campervansforsale.au/dealer-advertising/#webpage",
+    "url": "https://www.campervansforsale.au/dealer-advertising/",
     "name": "Campervan Dealer Advertising | Unlimited Listings $199/Month | CampervansForSale",
     "description": "Advertise your campervan dealership on CampervansForSale.au. Unlimited listings, zero lead fees, $199/month (inc. GST). Cancel anytime.",
-    "isPartOf": { "@id": "https://www.motorhomesforsale.com.au/#website" },
-    "breadcrumb": { "@id": "https://www.motorhomesforsale.com.au/dealer-advertising/#breadcrumb" },
+    "isPartOf": { "@id": "https://www.campervansforsale.au/#website" },
+    "breadcrumb": { "@id": "https://www.campervansforsale.au/dealer-advertising/#breadcrumb" },
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "@id": "https://www.motorhomesforsale.com.au/dealer-advertising/#breadcrumb",
+    "@id": "https://www.campervansforsale.au/dealer-advertising/#breadcrumb",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.motorhomesforsale.com.au/" },
-      { "@type": "ListItem", "position": 2, "name": "Dealer Advertising", "item": "https://www.motorhomesforsale.com.au/dealer-advertising/" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.campervansforsale.au/" },
+      { "@type": "ListItem", "position": 2, "name": "Dealer Advertising", "item": "https://www.campervansforsale.au/dealer-advertising/" },
     ],
   },
   {
@@ -28,10 +28,10 @@ const schemaGraph = [
     "provider": {
       "@type": "Organization",
       "name": "Campervans For Sale",
-      "url": "https://www.motorhomesforsale.com.au/",
+      "url": "https://www.campervansforsale.au/",
     },
     "description": "Unlimited campervan listings on CampervansForSale.au for $199/month (inc. GST). Zero lead fees, no lock-in contracts, automatic inventory sync.",
-    "url": "https://www.motorhomesforsale.com.au/dealer-advertising/",
+    "url": "https://www.campervansforsale.au/dealer-advertising/",
     "areaServed": { "@type": "Country", "name": "Australia" },
     "offers": {
       "@type": "Offer",

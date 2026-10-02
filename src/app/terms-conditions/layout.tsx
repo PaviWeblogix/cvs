@@ -13,12 +13,12 @@ import { ReactNode } from "react";
    icons: { icon: "/favicon.ico" },
    robots: "index, follow",
    alternates: {
-    canonical: "https://www.motorhomesforsale.com.au/terms-conditions/",
+    canonical: "https://www.campervansforsale.au/terms-conditions/",
 
    },
    
    openGraph: {
-      url: "https://www.motorhomesforsale.com.au/terms-conditions/",
+      url: "https://www.campervansforsale.au/terms-conditions/",
      title: "Terms of Use – CampervansForSale.au | Marketplace Network",
        description:
      "Read the Terms of Use for CampervansForSale.au, a marketplace platform operated by Marketplace Network Pty Ltd (ABN 70 694 987 052). Learn about listings, user responsibilities, and platform policies.",

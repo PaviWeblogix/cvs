@@ -6,7 +6,7 @@ async function fetchPincodeCoords(pincode: string): Promise<[number, number] | n
       `https://nominatim.openstreetmap.org/search?postalcode=${pincode}&countrycodes=au&format=json&limit=1`,
       {
         headers: {
-          "User-Agent": "caravansforsale.com.au contact@caravansforsale.com.au",
+          "User-Agent": "campervansforsale.au contact@campervansforsale.au",
           "Accept-Language": "en",
         },
         next: { revalidate: false }, // Permanently cached by Next.js data cache

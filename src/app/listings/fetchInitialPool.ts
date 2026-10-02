@@ -15,7 +15,7 @@ import type { InitialPool } from "./home";
 import type { FilterState } from "./StateFilterBar";
 import { seededShuffle } from "./seededShuffle";
 
-const APP_URL         = process.env.NEXT_PUBLIC_APP_URL || "https://www.motorhomesforsale.com.au";
+const APP_URL         = process.env.NEXT_PUBLIC_APP_URL || "https://www.campervansforsale.au";
 // Direct WP API — used when seed > 0 to bypass Cloudflare's pool cache (which strips seed).
 const WP_API_BASE     = process.env.NEXT_PUBLIC_MFS_API_BASE;
 const WP_API_KEY      = process.env.MFS_API_KEY;

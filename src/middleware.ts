@@ -4,9 +4,13 @@
  import { isAllowedSingleBand } from "@/utils/seo/band-utils";
  const API_KEY = process.env.MFS_API_KEY;
 
- const API_WP = 'https://admin.motorhomesforsale.com.au/wp-json/mfs/v1';
+ // Only the API base from .env drives every backend call in this file — no
+ // hardcoded fallback host, so a misconfigured/missing env var fails loudly
+ // (via the `!data`/`!res.ok` guards below) instead of silently querying a
+ // stale, unrelated backend.
+ const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE || '';
 
- /* Live make/model/state/region validation — same params_count endpoint the
+ /* Live make/model/state/region validation — same params-count endpoint the
     browse filter panels use (group_by=make nests valid models per make;
     group_by=state nests valid regions per state). Replaces the old
     cfs-paths/*.json snapshots, which went stale against live inventory
@@ -16,8 +20,8 @@
    try {
      const controller = new AbortController();
      const tid = setTimeout(() => controller.abort(), 5000);
-     const res = await fetch(`${API_WP}/params_count?${query}`, {
-       headers: { 'User-Agent': 'next-middleware', ...(API_KEY && { 'X-API-Key': API_KEY }) },
+     const res = await fetch(`${API_BASE}/params-count?${query}`, {
+       headers: { 'User-Agent': 'next-middleware', ...(API_KEY && { 'X-Secret-Key': API_KEY }) },
        signal: controller.signal,
        cache: 'no-store',
      });
@@ -34,22 +38,32 @@
  async function isValidMakeModel(makeSlug: string, modelSlug?: string): Promise<boolean> {
    const data = await fetchParamsCount('group_by=make');
    if (!data) return true; // API error — don't block, let the live pool check further down handle it
-   const makes = data?.data?.make ?? [];
+   // group_by=make returns its own list directly under .data (not nested
+   // under a further .make key) — a single call always returns one list.
+   const makes = data?.data ?? [];
    const makeEntry = makes.find((m: any) => m.slug === makeSlug);
    if (!makeEntry) return false;
    if (!modelSlug) return true;
-   const models = makeEntry.model ?? [];
+   // Models are NOT nested under the make entry (that field is always
+   // empty) — a separate scoped query is required to list them.
+   const modelData = await fetchParamsCount(`group_by=model&campervan_make=${encodeURIComponent(makeSlug)}`);
+   if (!modelData) return true;
+   const models = modelData?.data ?? [];
    return models.some((mo: any) => mo.slug === modelSlug);
  }
 
  async function isValidStateRegion(stateSlug: string, regionSlug?: string): Promise<boolean> {
    const data = await fetchParamsCount('group_by=state');
    if (!data) return true;
-   const states = data?.data?.state ?? [];
+   const states = data?.data ?? [];
    const stateEntry = states.find((s: any) => s.slug === stateSlug);
    if (!stateEntry) return false;
    if (!regionSlug) return true;
-   const regions = stateEntry.region ?? [];
+   // Regions are NOT nested under the state entry (that field is always
+   // empty) — a separate scoped query is required to list them.
+   const regionData = await fetchParamsCount(`group_by=region&state=${encodeURIComponent(stateSlug)}`);
+   if (!regionData) return true;
+   const regions = regionData?.data ?? [];
    return regions.some((r: any) => r.slug === regionSlug);
  }
 
@@ -57,8 +71,8 @@
    try {
      const controller = new AbortController();
      const tid = setTimeout(() => controller.abort(), 5000);
-     const res = await fetch(`${API_WP}/location-search?keyword=${encodeURIComponent(suburb)}`, {
-       headers: { 'User-Agent': 'next-middleware', ...(apiKey && { 'X-API-Key': apiKey }) },
+     const res = await fetch(`${API_BASE}/location-search?keyword=${encodeURIComponent(suburb)}`, {
+       headers: { 'User-Agent': 'next-middleware', ...(apiKey && { 'X-Secret-Key': apiKey }) },
        signal: controller.signal,
        cache: 'no-store',
      });
@@ -131,7 +145,8 @@
    const p = new URLSearchParams();
    p.set('page', '1');
    if (filters.category) p.set('category', filters.category);
-   if (filters.make) p.set('make', filters.make);
+   if (filters.make) p.set('campervan_make', filters.make);
+   if (filters.engine_make) p.set('vehicle_make', filters.engine_make);
    if (filters.model) p.set('model', filters.model);
    if (filters.state) p.set('state', filters.state);
    if (filters.region) p.set('region', filters.region);
@@ -280,7 +295,7 @@
 
    /* 🚫 Unknown multi-segment paths → 410 (e.g. /queensland-state/stoney-creek/ without /listings/ prefix) */
    const KNOWN_MULTI_SEGMENT = new Set([
-     'listings', 'product', 'api', '_next', 'blog', 'author', 'caravan-manufacturers',
+     'listings', 'product', 'api', '_next', 'blog', 'author',
      '410', '404', '410-new', 'images', 'fonts', 'icons',
      'demo', 'product-detail-demo',
      'sell-my-campervan',
@@ -303,7 +318,6 @@
      const slug = url.pathname.replace(/^\/product\//, '').replace(/\/$/, '');
      if (slug) {
        try {
-         const API_BASE = process.env.NEXT_PUBLIC_MFS_API_BASE || 'https://admin.motorhomesforsale.com.au/wp-json/mfs/v1';
          const controller = new AbortController();
          const timeoutId = setTimeout(() => controller.abort(), 5000);
          const apiRes = await fetch(
@@ -375,9 +389,7 @@
        // Build API params using the same mapping as fetchListings (api/listings/api.ts).
        // Raw filter keys (minKg, maxKg, sleeps) must be converted to API names (from_gvm, to_gvm, sleep).
        const apiParams = buildApiParams(filters);
-       const apiUrl =
-         "https://admin.motorhomesforsale.com.au/wp-json/mfs/v1/pool_test?" +
-         apiParams.toString();
+       const apiUrl = `${API_BASE}/pool?` + apiParams.toString();
 
        const controller = new AbortController();
        const timeoutId = setTimeout(() => controller.abort(), 5000);
@@ -406,9 +418,9 @@
          // 0 regular products:
          //   - empExclusive also empty → 410 (Vercel shows its own Gone page — no content anyway)
          //   - empExclusive has items  → 200 noindex (Vercel intercepts 410+rewrite, page must show exclusive content)
-         const products = data?.products ?? [];
-         const empExclusive = data?.emp_exclusive_products ?? [];
-         if (products.length === 0) {
+         const totalProducts = data?.pagination?.total_products ?? data?.counts?.total ?? 0;
+         const empExclusive = data?.exclusive_products ?? [];
+         if (totalProducts === 0) {
            if (empExclusive.length === 0) {
              // Don't 410 from middleware — ISR/page component handles empty state
              robotsHeader = "noindex, nofollow";
@@ -436,12 +448,14 @@
            }
          }
        } else if (apiRes.status === 410) {
-         // WordPress returns 410 for 0 products — set noindex but let ISR/page handle display
+         // Defensive fallback — the current /pool endpoint always responds 200
+         // (even for zero matches), so this shouldn't fire, but keep it in
+         // case that ever changes.
          try {
            const raw410 = await apiRes.text();
            const idx410 = raw410.indexOf('{"');
            const data410 = JSON.parse(idx410 > 0 ? raw410.substring(idx410) : raw410);
-           const empExclusive410 = data410?.emp_exclusive_products ?? [];
+           const empExclusive410 = data410?.exclusive_products ?? [];
            if (empExclusive410.length === 0) {
              robotsHeader = "noindex, nofollow";
              // Don't render410 — let ISR serve cached HTML

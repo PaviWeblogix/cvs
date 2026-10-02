@@ -24,16 +24,16 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
   robots: "index, follow",
   alternates: {
-    canonical: "https://www.motorhomesforsale.com.au",
+    canonical: "https://www.campervansforsale.au",
   },
   openGraph: {
     title: "Campervans For Sale – New & Used Campervan Marketplace in Australia",
     description: "Browse new and used campervans for sale across Australia. Compare prices, layouts and key specifications from trusted dealers and private sellers.",
-    url: "https://www.motorhomesforsale.com.au",
+    url: "https://www.campervansforsale.au",
     siteName: "Campervans for Sale",
     images: [
       {
-        url: "https://www.motorhomesforsale.com.au/images/mfs-logo.png",
+        url: "https://www.campervansforsale.au/images/mfs-logo.png",
         width: 800,
         height: 600,
         alt: "Campervans for Sale Australia",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
 };
 
- const BASE_URL = "https://www.motorhomesforsale.com.au";
+ const BASE_URL = "https://www.campervansforsale.au";
 
 const homeJsonLd = {
   "@context": "https://schema.org",
